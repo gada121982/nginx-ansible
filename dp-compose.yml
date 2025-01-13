@@ -1,0 +1,28 @@
+---
+cluster:
+  type: "nginx_grafana"   
+  monitor:
+    scrape_port: 9090
+    dashboard_file: "dashboard/nginx.json"
+  services:
+    nginx:
+      playbook:
+        deploy: "meta/nginx/deploy.yml"
+        stop: "meta/nginx/stop.yml"
+        restart: "meta/nginx/restart.yml"
+        start: "meta/nginx/start.yml"
+      configuration:
+        nginx.port: 80
+        nginx.data_dir: "/var/data"
+        ssl: true
+
+    grafana:
+      playbook:
+        deploy: "/meta/grafana/deploy.yml"
+        stop: "meta/grafana/stop.yml"
+        restart: "meta/grafana/restart.yml"
+        start: "meta/grafana/start.yml"
+      configuration:
+        grafana.port: 3003 
+      depends_on:
+        - nginx
