@@ -1,0 +1,14 @@
+- name: Stop Nginx
+  hosts: nginx
+  become: yes
+
+  tasks:
+    - name: Stop Nginx service
+      systemd:
+        name: nginx
+        state: stopped
+
+    - name: Disable Nginx service
+      systemd:
+        name: nginx
+        enabled: no

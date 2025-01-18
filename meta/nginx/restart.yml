@@ -1,0 +1,9 @@
+- name: Restart Nginx
+  hosts: nginx
+  become: yes
+
+  tasks:
+    - name: Restart Nginx service
+      systemd:
+        name: nginx
+        state: restarted
