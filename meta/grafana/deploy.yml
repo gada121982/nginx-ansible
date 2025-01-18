@@ -1,12 +1,17 @@
 ---
-- name: Install Grafana
-  apt:
-    name: grafana
-    state: present
+- name: Install and configure grafana
+  hosts: grafana
   become: yes
 
-- name: Ensure Grafana is started and enabled
-  systemd:
-    name: grafana-server
-    state: started
-    enabled: yes
+  tasks:
+    - name: Install Grafana
+      apt:
+        name: grafana
+        state: present
+      become: yes
+
+    - name: Ensure Grafana is started and enabled
+      systemd:
+        name: grafana-server
+        state: started
+        enabled: yes

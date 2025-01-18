@@ -18,7 +18,7 @@ cluster:
 
     grafana:
       playbook:
-        deploy: "/meta/grafana/deploy.yml"
+        deploy: "meta/grafana/deploy.yml"
         stop: "meta/grafana/stop.yml"
         restart: "meta/grafana/restart.yml"
         start: "meta/grafana/start.yml"
