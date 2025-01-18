@@ -15,6 +15,11 @@
         name: nginx
         state: started
         enabled: yes
+    - name: Ensure /etc/nginx/conf.d directory exists
+      file:
+        path: /etc/nginx/conf.d
+        state: directory
+        mode: '0755'
 
     - name: Configure Nginx
       template:
