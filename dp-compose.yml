@@ -6,6 +6,7 @@ cluster:
     dashboard_file: "dashboard/nginx.json"
   services:
     nginx:
+      systemd_name: "nginx"
       playbook:
         deploy: "meta/nginx/deploy.yml"
         stop: "meta/nginx/stop.yml"
@@ -17,6 +18,7 @@ cluster:
         nginx_server_name: localhost
 
     grafana:
+      systemd_name: "grafana"
       playbook:
         deploy: "meta/grafana/deploy.yml"
         stop: "meta/grafana/stop.yml"
