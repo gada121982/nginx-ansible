@@ -1,0 +1,23 @@
+- name: Remove Nginx
+  hosts: nginx
+  become: yes
+  tasks:
+    - name: Stop Nginx service
+      systemd:
+        name: nginx
+        state: stopped
+
+    - name: Disable Nginx service
+      systemd:
+        name: nginx
+        enabled: no
+
+    - name: Remove Nginx package
+      package:
+        name: nginx
+        state: absent
+
+    - name: Remove Nginx configuration files
+      file:
+        path: /etc/nginx
+        state: absent

@@ -12,6 +12,7 @@ cluster:
         stop: "meta/nginx/stop.yml"
         restart: "meta/nginx/restart.yml"
         start: "meta/nginx/start.yml"
+        remove: "meta/nginx/remove.yml"
       configuration:
         nginx_port: 80
         nginx_data_dir: "/var/data"
@@ -24,6 +25,7 @@ cluster:
         stop: "meta/grafana/stop.yml"
         restart: "meta/grafana/restart.yml"
         start: "meta/grafana/start.yml"
+        remove: "meta/grafana/remove.yml"
       configuration:
         grafana.port: 3003 
       depends_on:

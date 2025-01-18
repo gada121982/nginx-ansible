@@ -1,0 +1,25 @@
+- name: Remove Grafana
+  hosts: grafana
+  become: yes
+
+  tasks:
+    - name: Stop Grafana service
+      systemd:
+        name: grafana-server
+        state: stopped
+
+    - name: Disable Grafana service
+      systemd:
+        name: grafana-server
+        enabled: no
+
+    - name: Remove Grafana package
+      package:
+        name: grafana
+        state: absent
+
+    - name: Remove Grafana service file
+      file:
+        path: /etc/systemd/system/grafana-server.service
+        state: absent
+
