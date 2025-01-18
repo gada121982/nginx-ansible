@@ -1,0 +1,15 @@
+---
+- name: Start Grafana
+  hosts: grafana
+  become: yes
+
+  tasks:
+    - name: Start Grafana service
+      systemd:
+        name: grafana-server
+        state: started
+
+    - name: Enable Grafana service
+      systemd:
+        name: grafana-server
+        enabled: yes

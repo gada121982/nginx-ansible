@@ -1,0 +1,15 @@
+---
+- name: Stop Grafana
+  hosts: grafana
+  become: yes
+
+  tasks:
+    - name: Stop Grafana service
+      systemd:
+        name: grafana-server
+        state: stopped
+
+    - name: Disable Grafana service
+      systemd:
+        name: grafana-server
+        enabled: no
