@@ -10,11 +10,6 @@
         state: present
       become: yes
 
-    - name: Ensure Nginx is started and enabled
-      systemd:
-        name: nginx
-        state: started
-        enabled: yes
     - name: Ensure /etc/nginx/conf.d directory exists
       file:
         path: /etc/nginx/conf.d
@@ -32,6 +27,7 @@
       systemd:
         name: nginx
         state: restarted
+        enabled: yes
 
     - name: Ensure Nginx is reloaded
       systemd:
