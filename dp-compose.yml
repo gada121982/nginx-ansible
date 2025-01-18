@@ -18,7 +18,7 @@ cluster:
         nginx_server_name: localhost
 
     grafana:
-      systemd_name: "grafana"
+      systemd_name: "grafana-server"
       playbook:
         deploy: "meta/grafana/deploy.yml"
         stop: "meta/grafana/stop.yml"
