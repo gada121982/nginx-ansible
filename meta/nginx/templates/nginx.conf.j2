@@ -1,6 +1,6 @@
 server {
-    listen {{ nginx.port }};
-    server_name localhost;
+    listen {{nginx_port}};
+    server_name {{nginx_server_name}};
 
     location / {
         root /var/www/html;

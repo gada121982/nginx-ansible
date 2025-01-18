@@ -12,8 +12,9 @@ cluster:
         restart: "meta/nginx/restart.yml"
         start: "meta/nginx/start.yml"
       configuration:
-        nginx.port: 80
-        nginx.data_dir: "/var/data"
+        nginx_port: 80
+        nginx_data_dir: "/var/data"
+        nginx_server_name: localhost
         ssl: true
 
     grafana:
