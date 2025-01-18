@@ -15,7 +15,6 @@ cluster:
         nginx_port: 80
         nginx_data_dir: "/var/data"
         nginx_server_name: localhost
-        ssl: true
 
     grafana:
       playbook:
