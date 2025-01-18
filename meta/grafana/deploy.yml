@@ -5,7 +5,7 @@
 
   tasks:
     - name: Install Grafana
-      apt:
+      yum:
         name: grafana
         state: present
       become: yes
